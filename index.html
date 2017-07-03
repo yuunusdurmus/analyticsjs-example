@@ -6,5 +6,26 @@
 </head>
 <body>
   <script src="dist/bundle.js"></script>
+  <script>
+      var analyticsArray = new AnalyticsArray([
+          {
+            type: 'identify',
+            data: {
+              id:'',
+                user:{
+                  name: "{{ user.first_name }} {{user.last_name}}",
+                  email: ''
+                }
+            }
+          },
+          {
+            type: 'page Viewed',
+            data: ''
+          },
+      ]);
+
+      initAnalytics(analyticsArray);
+    </script>
+
 </body>
 </html>
