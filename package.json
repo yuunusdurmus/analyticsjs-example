@@ -1,0 +1,13 @@
+{
+  "name": "analyticsjs-example",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "analyticsjs": "git+https://github.com/yuunusdurmus/analyticsjs.git"
+  },
+  "devDependencies": {
+    "webpack": "^3.0.0"
+  }
+}
