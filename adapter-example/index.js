@@ -5,48 +5,42 @@ module.exports = exports = function(analytics) {
 };
 
 var Custom = exports.Integration = integration('Custom Analytics')
- .readyOnLoad()
-  .global('ga')
-  .global('gaplugins')
-  .global('_gaq')
-  .global('GoogleAnalyticsObject')
-  .option('anonymizeIp', false)
-  .option('classic', false)
-  .option('contentGroupings', {})
-  .option('dimensions', {})
-  .option('domain', 'auto')
-  .option('doubleClick', false)
-  .option('enhancedEcommerce', false)
-  .option('enhancedLinkAttribution', false)
-  .option('ignoredReferrers', null)
-  .option('includeSearch', false)
-  .option('setAllMappedProps', true)
-  .option('metrics', {})
-  .option('nonInteraction', false)
-  .option('sendUserId', false)
-  .option('siteSpeedSampleRate', 1)
-  .option('sampleRate', 100)
-  .option('trackCategorizedPages', true)
-  .option('trackNamedPages', true)
-  .option('trackingId', '')
-  .option('optimize', '')
-    .tag('library', '<script id="hede" src="./test.js">')
+    .tag('library', '<script id="hede" src="./custom-analytics.js">')
 
+
+Custom.on('construct', function(integration){
+  console.log('----',integration)
+})
 
 Custom.prototype.initialize = function() {
-  
-    console.log(this)
-
-  this.load('library', this.ready);
+    console.log('custom library initialize =>', this, '\n\n\n');
+    this.load('library', this.ready);
 };
 
 Custom.prototype.loaded = function() {
-  return !!window.gaplugins;
+  return !!window.customAnalytics;
 };
 
 Custom.prototype.page = function() {
-   console.log('page')
+
+    console.log('=> page viewed action', '\n\n\n');
+
     this.pageCalled = true;
 };
 
+Custom.prototype.track = function(track, properties) {
+    
+    //all data
+    console.log( 'data =>', track, '\n\n\n')
 
+    //event name
+    console.log( 'event name =>', track.event(), '\n\n\n')
+
+    //event data
+    console.log( 'category =>', track.category(), '\n\n\n')
+
+};
+
+Custom.prototype.orderCompleted = function(track) {
+    console.log('========',track)
+}

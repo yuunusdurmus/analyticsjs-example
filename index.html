@@ -7,28 +7,91 @@
 <body>
   <script src="bundle.js"></script>
   <script>
-      var analyticsArray = new AnalyticsArray([
+      var analyticsArray = new AnalyticsArray([]);
+      analyticsArray.push(
           {
-            type: 'identify',
-            data: {
+              type: 'identify',
+              data: {
               id:'',
                 user:{
-                  name: "{{ user.first_name }} {{user.last_name}}",
-                  email: ''
+                  name: "firstname/lastnamee",
+                  email: 'example@example.com'
                 }
             }
           },
           {
-            type: 'page Viewed',
-            data: ''
+              type: 'page Viewed',
+              data: ''
           },
           {
-            type: 'Product Added',
-              data: {}
+              type: 'Product Added',
+              data: {
+                  cart_id: 'skdjsidjsdkdj29j',
+                  product_id: '507f1f77bcf86cd799439011',
+                  sku: 'G-32',
+                  category: 'Games',
+                  name: 'Monopoly: 3rd Edition',
+                  brand: 'Hasbro',
+                  variant: '200 pieces',
+                  price: 18.99,
+                  quantity: 1,
+                  coupon: 'MAYDEALS',
+                  position: 3
+              }
           },
-      ]);
+          {
+              type: 'Product Added',
+              data: {
+                  cart_id: 'skdjsidjsdkdj29j',
+                  product_id: '507f1f77bcf86cd799439011',
+                  sku: 'G-32',
+                  category: 'Games',
+                  name: 'Monopoly: 3rd Edition',
+                  brand: 'Hasbro',
+                  variant: '200 pieces',
+                  price: 18.99,
+                  quantity: 1,
+                  coupon: 'MAYDEALS',
+                  position: 3
+              }
+          },
+          {
+              type: 'Checkout Step Complated',
+              data: {
+                  checkout_id: '50314b8e9bcf000000000000',
+                  step: 2,
+                  shipping_method: 'Fedex',
+                  payment_method: 'Visa'
+              }
+          
+         },
+         {
+              type: 'Order Completed',
+              data: {
+                  checkout_id: 'fksdjfsdjfisjf9sdfjsd9f',
+                  order_id: '50314b8e9bcf000000000000',
+                  affiliation: 'Google Store',
+                  total: 30,
+                  revenue: 25,
+                  shipping: 3,
+                  tax: 2,
+                  discount: 2.5,
+                  coupon: 'hasbros',
+                  currency: 'USD',
+                  products: [
+                      {
+                          product_id: '507f1f77bcf86cd799439011',
+                          sku: '45790-32',
+                          name: 'Monopoly: 3rd Edition',
+                          price: 19,
+                          quantity: 1,
+                          category: 'Games'
+                      },
+                  ]
+              }
+         }
+     );
 
-      initAnalytics(analyticsArray);
     </script>
 
 </body>
