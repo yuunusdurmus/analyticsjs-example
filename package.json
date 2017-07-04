@@ -4,10 +4,14 @@
   "repository": {
     "type": "git"
   },
+  "scripts" : {
+    "dev" : "$(npm bin)/webpack-dev-server --entry ./app.js --output-filename ./bundle.js --port 8111"
+  },
   "dependencies": {
     "analyticsjs": "git+https://github.com/yuunusdurmus/analyticsjs.git"
   },
   "devDependencies": {
-    "webpack": "^3.0.0"
+    "webpack": "^2.6.0",
+    "webpack-dev-server": "^2.5.0"
   }
 }
